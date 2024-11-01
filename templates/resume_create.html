@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block title %}add{% endblock title %}
+{% block content %}
+<style>
+    /* Flex container for centering */
+    .flex-container {
+        display: flex;
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        height: 100vh; /* Full viewport height */
+        margin: 0; /* Remove default margin */
+        background-color: #f8f9fa; /* Light background */
+    }
+    
+    /* Form Container */
+    .container {
+        max-width: 400px; /* Limit the width */
+        width: 100%; /* Full width within the max-width */
+        padding: 30px; /* Padding around the content */
+        background-color: #ffffff; /* White background */
+        border-radius: 12px; /* Rounded corners */
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    }
+    
+    /* Title */
+    h2 {
+        text-align: center; /* Centered title */
+        margin-bottom: 20px; /* Space below the title */
+        font-size: 1.8em; /* Larger title font size */
+        color: #333; /* Dark text color */
+    }
+    
+    /* Form Group Styles */
+    .form-group {
+        margin-bottom: 20px; /* Space between fields */
+    }
+    
+    /* Input Fields */
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        width: 100%; /* Full width */
+        padding: 12px; /* Padding for comfort */
+        border: 2px solid #ced4da; /* Light border */
+        border-radius: 6px; /* Rounded edges */
+        font-size: 1em; /* Standard font size */
+        transition: border-color 0.3s; /* Smooth transition */
+    }
+    
+    /* Input Focus Styles */
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+        border-color: #007bff; /* Change border color */
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Light shadow on focus */
+        outline: none; /* Remove default outline */
+    }
+    
+    /* Button Styles */
+    button {
+        width: 100%; /* Full-width button */
+        padding: 12px; /* Padding for comfort */
+        background-color: #007bff; /* Bootstrap primary color */
+        border: none; /* No border */
+        border-radius: 6px; /* Rounded edges */
+        color: #ffffff; /* White text */
+        font-size: 1em; /* Standard font size */
+        cursor: pointer; /* Pointer cursor */
+        transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+    }
+    
+    /* Button Hover Effect */
+    button:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+        transform: translateY(-2px); /* Slight lift effect */
+    }
+    
+    /* Button Active Effect */
+    button:active {
+        transform: translateY(0); /* Reset on click */
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 600px) {
+        .container {
+            padding: 20px; /* Adjust padding for smaller screens */
+        }
+    }
+    
+</style>
+<div class="flex-container">
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}

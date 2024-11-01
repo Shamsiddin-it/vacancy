@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    /* styles.css */
+
+/* General body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; /* Light background */
+    color: #343a40; /* Dark text color */
+    padding: 20px;
+}
+
+/* Card styles */
+.card {
+    border: 1px solid #dee2e6; /* Light border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+}
+
+/* Card title styles */
+.card-title {
+    font-size: 1.5em; /* Larger title */
+    margin-bottom: 0.5em; /* Spacing below title */
+    color: #007bff; /* Bootstrap primary color */
+}
+
+/* Card subtitle styles */
+.card-subtitle {
+    font-size: 1.1em; /* Subtitle size */
+    color: #6c757d; /* Muted text color */
+}
+
+/* Card text styles */
+.card-text {
+    font-size: 1em; /* Standard text size */
+    margin-bottom: 1em; /* Spacing below text */
+}
+
+/* Link styles */
+.card-link {
+    color: #007bff; /* Bootstrap primary color */
+    text-decoration: none; /* Remove underline */
+}
+
+.card-link:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+</style>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 5%;">
+    {% for category in categories %}
+    <a href="{% url "category_detail" category.id %}" class="card-link">
+    <div class="card" style="width: 18rem; margin-top: 20px;">
+        <div class="card-body" style = " display: flex; justify-content: center; align-items: center;">
+          <h5 class="card-title">{{category.name}}</h5>
+        </div>
+      </div> 
+    </a>
+    {% endfor %}
+</div>
+    {% comment %} <a href="{% url "category_create" %}" class="card-link"><button>Add category</button></a> {% endcomment %}
+{% endblock content %}

@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %}Detail{% endblock title %}
+{% block content %}
+<style>
+  /* Card Container */
+  .card {
+      margin: 20px auto; /* Center and space the card */
+      width: 18rem; /* Fixed width for card */
+      border: 1px solid #ced4da; /* Light border */
+      border-radius: 12px; /* Rounded corners */
+      transition: transform 0.3s, box-shadow 0.3s; /* Smooth effects */
+  }
+  
+  /* Card Body */
+  .card-body {
+      padding: 20px; /* Padding for card content */
+  }
+  
+  /* Card Title */
+  .card-title {
+      font-size: 1.5em; /* Larger font size for the title */
+      color: #333; /* Dark text color */
+      margin-bottom: 10px; /* Space below title */
+  }
+  
+  /* Card Subtitle */
+  .card-subtitle {
+      font-size: 1.1em; /* Standard size for subtitles */
+      color: #6c757d; /* Bootstrap secondary color */
+      margin-bottom: 10px; /* Space below subtitle */
+  }
+  
+  /* Card Text */
+  .card-text {
+      font-size: 0.95em; /* Slightly smaller text size */
+      color: #555; /* Darker gray for text */
+      margin-bottom: 10px; /* Space between text elements */
+  }
+  
+  /* Link Styles */
+  .card a {
+      color: #007bff; /* Bootstrap primary color */
+      text-decoration: none; /* Remove underline */
+  }
+  
+  .card a:hover {
+      text-decoration: underline; /* Underline on hover */
+  }
+  
+  /* Hover Effect for Card */
+  .card:hover {
+      transform: translateY(-5px); /* Lift effect on hover */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow on hover */
+  }
+  
+  /* Button Styles for Update/Delete Links */
+  .card-link {
+      margin-top: 10px; /* Space above each link */
+      display: inline-block; /* Allow margin */
+  }
+  
+  /* Resume File Link */
+  .card a.resume-file {
+      display: block; /* Block display for better spacing */
+      margin: 15px 0; /* Space above and below */
+      font-weight: bold; /* Bold text */
+      color: #28a745; /* Green color for resume link */
+  }
+  
+</style>
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{vacancy.name}}</h5>
+      <h6 class="card-subtitle mb-2 text-body-secondary">{{vacancy.category}}</h6>
+      <p class="card-text">{{vacancy.description}}</p>
+      <a href="{% url "vacancy_update" vacancy.id %}" class="card-link">Update</a>
+      <a href="{% url "vacancy_delete" vacancy.id %}" class="card-link">Delete</a>
+    </div>
+  </div>
+{% endblock content %}

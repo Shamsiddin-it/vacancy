@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load bootstrap5 %}
+    {%  bootstrap_css %}
+    {%  bootstrap_javascript %}
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+  }
+  
+  header {
+      margin-bottom: 20px;
+  }
+  
+  .navbar {
+      background-color: #007bff; /* Bootstrap primary color */
+  }
+  
+  .navbar-brand, .nav-link {
+      color: #ffffff !important;
+  }
+  
+  .navbar-brand:hover, .nav-link:hover {
+      color: #ffcc00 !important; /* Hover color for links */
+  }
+  
+  .navbar-toggler {
+      border-color: rgba(255, 255, 255, 0.5); /* Toggler border color */
+  }
+  
+  .dropdown-menu {
+      background-color: #007bff; /* Dropdown background color */
+  }
+  
+  .dropdown-item {
+      color: #ffffff; /* Dropdown item text color */
+  }
+  
+  .dropdown-item:hover {
+      background-color: #0056b3; /* Dropdown item hover color */
+  }
+  
+  .container-fluid {
+      padding: 10px 20px; /* Container padding */
+  }
+  
+  @media (max-width: 768px) {
+      .navbar-collapse {
+          background-color: #007bff; /* Navbar background on mobile */
+      }
+  }
+  
+  </style>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Navbar</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url "home" %}">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url "vacancy_list" %}">Vacancies</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url "category_list" %}">Categories</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url "resume_list" %}">Resumes</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Add
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="{% url "vacancy_create" %}">Add vacancy</a></li>
+                      <li><a class="dropdown-item" href="{% url "category_create" %}">Add category</a></li>
+                      <li><a class="dropdown-item" href="{% url "resume_create" %}">Add resume</a></li>
+                    </ul>
+                  </li>
+              </div>
+            </div>
+          </nav>
+    </header>
+    {% block content %}
+
+    {% endblock content %}
+</body>
+</html>
