@@ -1,22 +1,42 @@
 {% extends "base.html" %}
-{% block title %}home{% endblock title %}
+{% block title %}Home{% endblock title %}
 {% block content %}
 <style>
-    /* styles.css */
+    /* General styles */
+    .body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #f8f9fa; /* Light background */
+        color: #333; /* Dark text color */
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
-    margin: 0;
-    padding: 20px;
-}
+    /* Container styles */
+    .container {
+        background: #ffffff; /* White background */
+        border-radius: 12px; /* Rounded corners */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        padding: 40px;
+        text-align: center;
+    }
 
-p {
-    font-size: 1.2em;
-    line-height: 1.5;
-}
+    /* Paragraph styles */
+    p {
+        font-size: 1.2em; /* Larger font size */
+        line-height: 1.6; /* Increased line height */
+        color: #555; /* Muted text color */
+    }
 
 </style>
-    <p>hello this is new page </p>
+<div class = "body">
+<div class="container">
+    <p>Hello, this is the new page!</p>
+    <button class="btn-primary" ><a href = "{% url "vacancy_list" %}">Vacancies</a></button>
+    <button class="btn-secondary"><a href = "{% url "resume_list" %}">Resumes</a></button>
+</div>
+</div>
 {% endblock content %}

@@ -2,7 +2,7 @@
 {% block title %}delete{% endblock title %}
 {% block content %}
 <style>
-    body {
+    .body {
         font-family: 'Arial', sans-serif;
         background-color: #f4f4f4;
         margin: 0;
@@ -58,6 +58,7 @@
         background-color: #0056b3; /* Темнее при наведении */
     }
 </style>
+<div class="body">
 <div class="container">
     <h2>Confirm Deletion</h2>
     <p>Are you sure to delete the "{{ resume.full_name }}" resume?</p>
@@ -68,5 +69,6 @@
     <a href="{% url 'resume_list' %}">
         <button class="cancel-button">No</button>
     </a>
+</div>
 </div>
 {% endblock content %}

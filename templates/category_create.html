@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}add{% endblock title %}
+{% block title %}Add{% endblock title %}
 {% block content %}
 <style>
     /* Flex container for centering */
@@ -90,6 +90,7 @@
 </style>
 <div class="flex-container">
     <div class="container">
+        <h2>Add New Item</h2>
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}

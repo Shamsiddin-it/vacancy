@@ -15,6 +15,7 @@ urlpatterns = [
     path("category_detail/<int:pk>/", CategoryDetailView.as_view(), name = "category_detail"),
     path("resume_list/", ResumeListView.as_view(), name = "resume_list"),
     path("resume_create/", ResumeCreateView.as_view(), name = "resume_create"),
+    path("resume_create_2/<int:pk>/", ResumeCreate2View.as_view(), name = "resume_create_2"),
     path("resume_update/<int:pk>/", ResumeUpdateView.as_view(), name = "resume_update"),
     path("resume_delete/<int:pk>/", ResumeDeleteView.as_view(), name = "resume_delete"),
     path("resume_detail/<int:pk>/", ResumeDetailView.as_view(), name = "resume_detail"),

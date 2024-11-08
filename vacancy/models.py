@@ -24,7 +24,7 @@ class Resume(models.Model):
     age = models.IntegerField()
     email = models.EmailField(max_length=254)
     description = models.TextField()
-    resume = models.FileField( upload_to="static/resume/files", max_length=100)
+    resume = models.FileField( upload_to="static/resume/files", max_length=100, null=True, blank=True)
     def __str__(self):
         return self.full_name
 

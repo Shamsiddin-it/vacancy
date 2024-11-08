@@ -77,6 +77,20 @@ class ResumeCreateView(CreateView):
     fields = ['vacancy', 'full_name', 'age', 'email', 'description', 'resume']
     success_url = reverse_lazy("resume_list")
 
+class ResumeCreate2View(CreateView):
+    template_name = "resume_create_2.html"
+    model = Resume
+    fields = [ 'full_name', 'age', 'email', 'description', 'resume']
+    def form_valid(self, form):
+        vacancy = Vacancy.objects.filter(id = self.kwargs["pk"]).first()
+        if vacancy:
+            form.instance.vacancy = vacancy
+            return super().form_valid(form)
+        else:
+            return self.form_invalid(form)
+    
+    success_url = reverse_lazy("resume_list")
+
 class ResumeUpdateView(UpdateView):
     template_name = "resume_update.html"
     model = Resume

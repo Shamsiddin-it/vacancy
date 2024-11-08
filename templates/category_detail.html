@@ -6,49 +6,63 @@
 .card {
     margin: 20px auto; /* Center and space between cards */
     width: 18rem; /* Fixed width for cards */
-    border: 1px solid #ced4da; /* Light border */
+    border: none; /* Remove border */
     border-radius: 12px; /* Rounded corners */
-    transition: transform 0.3s; /* Smooth hover effect */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effect */
+    background-color: #fff; /* White background */
 }
 
 /* Card Body */
 .card-body {
-    padding: 15px; /* Inner padding for card content */
+    padding: 20px; /* Inner padding for card content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Card Title */
 .card-title {
-    font-size: 1.5em; /* Larger font size for titles */
-    color: #333; /* Dark text color */
+    font-size: 1.75em; /* Larger font size for titles */
+    color: #007bff; /* Primary color */
     margin-bottom: 10px; /* Space below title */
+    text-align: center; /* Center-align text */
 }
 
 /* Card Subtitle */
 .card-subtitle {
     font-size: 1em; /* Standard size for subtitles */
     color: #6c757d; /* Bootstrap secondary color */
+    margin-bottom: 10px; /* Space below subtitle */
+    text-align: center; /* Center-align text */
 }
 
 /* Card Text */
 .card-text {
-    font-size: 0.9em; /* Smaller font size for text */
-    margin-bottom: 15px; /* Space below text */
+    font-size: 0.95em; /* Slightly larger font size for text */
+    color: #495057; /* Darker grey color */
+    margin-bottom: 20px; /* Space below text */
+    text-align: center; /* Center-align text */
 }
 
 /* Card Link Styles */
 .card-link {
-    color: #007bff; /* Bootstrap primary color */
+    color: #007bff; /* Primary color */
     text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Bold text */
+    margin-bottom: 10px; /* Space between links */
+    transition: color 0.3s ease; /* Smooth color transition */
 }
 
 .card-link:hover {
+    color: #0056b3; /* Darker blue on hover */
     text-decoration: underline; /* Underline on hover */
 }
 
 /* Hover Effect for Cards */
 .card:hover {
     transform: translateY(-5px); /* Lift effect on hover */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow on hover */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
 }
 
 /* Add Resume Link */
@@ -61,25 +75,23 @@
 }
 
 </style>
-<div class="card" style="width: 18rem;">
+<div class="card">
     <div class="card-body">
       <h5 class="card-title">{{category.name}}</h5>
       <a href="{% url "category_update" category.id %}" class="card-link">Update</a>
       <a href="{% url "category_delete" category.id %}" class="card-link">Delete</a>
     </div>
-  </div>
+</div>
 
-  {% for vacancy in filtered_vacancy_list %}
-  <div class="card" style="width: 18rem;">
+{% for vacancy in filtered_vacancy_list %}
+  <div class="card">
       <div class="card-body">
         <h5 class="card-title">{{vacancy.name}}</h5>
-        <h6 class="card-subtitle mb-2 text-body-secondary">{{vacancy.category}}</h6>
+        <h6 class="card-subtitle mb-2">{{vacancy.category}}</h6>
         <p class="card-text">{{vacancy.description}}</p>
         <a href="{% url "vacancy_detail" vacancy.id %}" class="card-link">Detail</a>
-        <a href="{% url "resume_create"  %}" class="card-link">add resume</a>
+        <a href="{% url "resume_create_2" category.id %}" class="card-link add-resume">Add Resume</a>
       </div>
-    </div>
-
-  {% endfor %}
+  </div>
+{% endfor %}
 {% endblock content %}
-

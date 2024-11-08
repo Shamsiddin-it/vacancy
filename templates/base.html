@@ -12,54 +12,68 @@
 <body>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Roboto', sans-serif;
       background-color: #f8f9fa;
       margin: 0;
       padding: 0;
-  }
-  
-  header {
+    }
+
+    header {
       margin-bottom: 20px;
-  }
-  
-  .navbar {
-      background-color: #007bff; /* Bootstrap primary color */
-  }
-  
-  .navbar-brand, .nav-link {
+    }
+
+    .navbar {
+      background-color: #343a40; /* Dark background */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
+
+    .navbar-brand {
+      color: #ffcc00 !important; /* Brand color */
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .nav-link {
       color: #ffffff !important;
-  }
-  
-  .navbar-brand:hover, .nav-link:hover {
-      color: #ffcc00 !important; /* Hover color for links */
-  }
-  
-  .navbar-toggler {
+      transition: color 0.3s ease; /* Smooth transition for color change */
+    }
+
+    .nav-link:hover {
+      color: #ffcc00 !important; /* Hover color */
+    }
+
+    .navbar-toggler {
       border-color: rgba(255, 255, 255, 0.5); /* Toggler border color */
-  }
-  
-  .dropdown-menu {
-      background-color: #007bff; /* Dropdown background color */
-  }
-  
-  .dropdown-item {
+    }
+
+    .navbar-toggler-icon {
+      background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="rgba%28255, 255, 255, 0.5%29" stroke-width="2" linecap="round" linejoin="round" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
+    }
+
+    .dropdown-menu {
+      background-color: #343a40; /* Dropdown background color */
+      border: none;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for dropdown */
+    }
+
+    .dropdown-item {
       color: #ffffff; /* Dropdown item text color */
-  }
-  
-  .dropdown-item:hover {
-      background-color: #0056b3; /* Dropdown item hover color */
-  }
-  
-  .container-fluid {
+    }
+
+    .dropdown-item:hover {
+      background-color: #495057; /* Dropdown item hover color */
+    }
+
+    .container-fluid {
       padding: 10px 20px; /* Container padding */
-  }
-  
-  @media (max-width: 768px) {
+    }
+
+    @media (max-width: 768px) {
       .navbar-collapse {
-          background-color: #007bff; /* Navbar background on mobile */
+        background-color: #343a40; /* Navbar background on mobile */
       }
-  }
-  
+    }
+
   </style>
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">

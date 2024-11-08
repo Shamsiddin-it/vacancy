@@ -1,71 +1,87 @@
 {% extends "base.html" %}
 {% block content %}
 <style>
-    /* styles.css */
+    /* General body styles */
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #f8f9fa; /* Light background */
+        color: #343a40; /* Dark text color */
+        padding: 20px;
+    }
 
-/* General body styles */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa; /* Light background */
-    color: #343a40; /* Dark text color */
-    padding: 20px;
-}
+    /* Card styles */
+    .card {
+        border: none; /* Remove border */
+        border-radius: 12px; /* More rounded corners */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition */
+        background-color: #ffffff; /* White background */
+        padding: 20px; /* Add padding */
+    }
 
-/* Card styles */
-.card {
-    border: 1px solid #dee2e6; /* Light border */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition */
-}
+    .card:hover {
+        transform: translateY(-10px); /* Lift effect on hover */
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+    }
 
-.card:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
-}
+    /* Card title styles */
+    .card-title {
+        font-size: 1.75em; /* Larger title */
+        margin-bottom: 0.75em; /* More space below title */
+        color: #007bff; /* Bootstrap primary color */
+        text-align: center; /* Center-align text */
+    }
 
-/* Card title styles */
-.card-title {
-    font-size: 1.5em; /* Larger title */
-    margin-bottom: 0.5em; /* Spacing below title */
-    color: #007bff; /* Bootstrap primary color */
-}
+    /* Card subtitle styles */
+    .card-subtitle {
+        font-size: 1.2em; /* Larger subtitle */
+        color: #6c757d; /* Muted text color */
+        margin-bottom: 0.5em; /* Space below subtitle */
+        text-align: center; /* Center-align text */
+    }
 
-/* Card subtitle styles */
-.card-subtitle {
-    font-size: 1.1em; /* Subtitle size */
-    color: #6c757d; /* Muted text color */
-}
+    /* Card text styles */
+    .card-text {
+        font-size: 1em; /* Standard text size */
+        color: #495057; /* Darker grey color */
+        margin-bottom: 1.25em; /* More space below text */
+        text-align: center; /* Center-align text */
+    }
 
-/* Card text styles */
-.card-text {
-    font-size: 1em; /* Standard text size */
-    margin-bottom: 1em; /* Spacing below text */
-}
+    /* Link styles */
+    .card-link {
+        color: #007bff; /* Bootstrap primary color */
+        text-decoration: none; /* Remove underline */
+        transition: color 0.3s, text-decoration 0.3s; /* Smooth transition */
+    }
 
-/* Link styles */
-.card-link {
-    color: #007bff; /* Bootstrap primary color */
-    text-decoration: none; /* Remove underline */
-}
+    .card-link:hover {
+        color: #0056b3; /* Darker blue on hover */
+        text-decoration: underline; /* Underline on hover */
+    }
 
-.card-link:hover {
-    text-decoration: underline; /* Underline on hover */
-}
+    /* Flex container for cards */
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 20px; /* Larger gap between cards */
+    }
 
 </style>
-<div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 5%;">
+
+<div class="card-container">
     {% for resume in resumes %}
     <a href="{% url "resume_detail" resume.id %}" class="card-link">
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">{{resume.full_name}}</h5>
-          <h6 class="card-subtitle mb-2 text-body-secondary">{{resume.vacancy}}</h6>
-          <p class="card-text">{{resume.description}}</p>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ resume.full_name }}</h5>
+                <h6 class="card-subtitle mb-2">{{ resume.vacancy }}</h6>
+                <p class="card-text">{{ resume.description }}</p>
+            </div>
         </div>
-      </div>
     </a>
     {% endfor %}
 </div>
-    {% comment %} <a href="{% url "category_create" %}" class="card-link"><button>Add category</button></a> {% endcomment %}
 {% endblock content %}
