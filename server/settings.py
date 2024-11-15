@@ -37,7 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 3rd party
+    'rest_framework',
+    # local
     'vacancy.apps.VacancyConfig',
+    'apis.apps.ApisConfig',
     "bootstrap5",
 ]
 
